@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Counter Project</title>
+    <style type="text/css">
+        *{
+	margin: 0;
+	padding: 0;
+	background-color: lime;
+}
+.container{
+	width: 100%;
+	height: 85vh;
+    align-items: center;
+    text-align: center; color: black;
+}
+h1{
+	margin: 30px 0 30px 0;
+	font-size: 55PX;
+	font-weight: 700;
+text-shadow: 2px 1px 5px pink;
+	text-transform: uppercase;
+}
+.btn{
+    margin:0 25px 0 30px;
+    border-radius: 30%;
+    padding: 10px 20px ;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+.prevBtn:hover{
+    background: lightBlue;
+}
+.nextBtn:hover{
+    background: lightBlue;
+}
+   </style>
+</head>
+<body>
+		<div class="container"> 
+  <div class="row max-height align-items-center">
+  <div class="col-10 mx-auto col-md-6 text-center main-container p-5">
+  <h1 class="text-uppercase">counter</h1>
+  <h1 id="counter">0</h1>
+  <div class="btn-container d-flex justify-content-arround flex-wrap">
+  <button class="btn counterBtn prevBtn text-uppercase m-2">low</button>
+   <button class="btn counterBtn nextBtn text-uppercase m-2">high</button>
+   </div>
+   </div>
+   </div>
+   </div>
+   
+   
+<!--script js-->
+   <script>(function(){
+ const buttons = document.querySelectorAll('.counterBtn')
+count = 0
+ 
+//Add event listeners and functionailty to each buttons 
+buttons.forEach(function(button){
+    button.addEventListener('click',function(){
+        if (button.classList.contains('prevBtn')){
+           count-- 
+        }else if (button.classList.contains('nextBtn')){
+           count++
+        }
+//select the counter text
+ const counter = document.querySelector('#counter')
+ counter.textContent= count
+ 
+  if(count < 0){
+      counter.style.color ='red'
+  }else if(count > 0){
+      counter.style.color ='green'
+      }else {
+          counter.style.color= 'yello'
+      }
+    })
+})
+   })()</script>
+</body>
+</html>
